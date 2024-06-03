@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Add Prediksi{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Add Prediksi</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_nama_barang">Nama Barang:</label>
+            {{ form.nama_barang }}
+        </div>
+        <div class="form-group">
+            <label for="id_kuartal">Kuartal:</label>
+            {{ form.kuartal }}
+        </div>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            {{ form.date }}
+        </div>
+        <div class="form-group">
+            <label for="id_gender_female">Gender Female:</label>
+            {{ form.gender_female }}
+        </div>
+        <div class="form-group">
+            <label for="id_gender_male">Gender Male:</label>
+            {{ form.gender_male }}
+        </div>
+        <div class="form-group">
+            <label for="id_region">Region:</label>
+            {{ form.region }}
+        </div>
+        <div class="form-group">
+            <label for="id_reject_f">Reject F:</label>
+            {{ form.reject_f }}
+        </div>
+        <div class="form-group">
+            <label for="id_agent">Agent:</label>
+            {{ form.agent }}
+        </div>
+        <div class="form-group">
+            <label for="id_range_mahal">Range Mahal:</label>
+            {{ form.range_mahal }}
+        </div>
+        <div class="form-group">
+            <label for="id_range_murah">Range Murah:</label>
+            {{ form.range_murah }}
+        </div>
+        <div class="form-group">
+            <label for="id_range_sedang">Range Sedang:</label>
+            {{ form.range_sedang }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+{% endblock %}

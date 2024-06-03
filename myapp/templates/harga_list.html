@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Harga List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Harga List</h1>
+    <a href="{% url 'harga_create' %}" class="btn btn-primary mb-2">Create New Harga</a>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID Barang</th>
+                <th>Nama Barang</th>
+                <th>Harga</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for harga in hargas %}
+            <tr>
+                <td>{{ harga.id_barang }}</td>
+                <td>{{ harga.nama_barang }}</td>
+                <td>{{ harga.harga }}</td>
+                <td>
+                    <a href="{% url 'harga_update' harga.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'harga_delete' harga.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

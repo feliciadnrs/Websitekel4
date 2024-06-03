@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}POS List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Order List</h1>
+    <a href="{% url 'pos_create' %}" class="btn btn-primary mb-2">Create New Order</a>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Country</th>
+                <th>Nama Barang</th>
+                <th>Quantity</th>
+                <th>Harga</th>
+                <th>Total Harga</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pos in pos_list %}
+            <tr>
+                <td>{{ pos.id }}</td>
+                <td>{{ pos.customer }}</td>
+                <td>{{ pos.country}}</td>
+                <td>{{ pos.nama_barang.nama_barang }}</td>
+                <td>{{ pos.quantity }}</td>
+                <td>{{ pos.nama_barang.harga }}</td>
+                <td>{{ pos.total_harga }}</td>
+                <td>
+                    <a href="{% url 'pos_update' pos.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'pos_delete' pos.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

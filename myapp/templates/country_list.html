@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Country List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Country List</h1>
+    <a href="{% url 'country_create' %}" class="btn btn-primary mb-2">Create New Country</a>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Country ID</th>
+                <th>Country Code</th>
+                <th>Country Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for country in countries %}
+            <tr>
+                <td>{{ country.country_id }}</td>
+                <td>{{ country.country_code }}</td>
+                <td>{{ country.country_name }}</td>
+                <td>
+                    <a href="{% url 'country_update' country.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'country_delete' country.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

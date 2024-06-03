@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Harga{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Edit Harga</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="id_barang">ID Barang</label>
+            {{ form.id_barang }}
+            {% if form.id_barang.errors %}
+                <div class="text-danger">{{ form.id_barang.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            <label for="nama_barang">Nama Barang</label>
+            {{ form.nama_barang }}
+            {% if form.nama_barang.errors %}
+                <div class="text-danger">{{ form.nama_barang.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            <label for="harga">Harga</label>
+            {{ form.harga }}
+            {% if form.harga.errors %}
+                <div class="text-danger">{{ form.harga.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+{% endblock %}

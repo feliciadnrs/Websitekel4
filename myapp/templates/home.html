@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron mt-4">
+    <h1 class="display-4">Hi Welcome!</h1>
+    <p class="lead">This is a simple Django application</p>
+    <hr class="my-4">
+
+    <a class="btn btn-primary btn-lg" href="{% url 'harga_list' %}" role="button">Manage Harga</a>
+    <a class="btn btn-info btn-lg" href="{% url 'customer_list' %}" role="button">Manage Customers</a>
+    <a class="btn btn-warning btn-lg" href="{% url 'country_list' %}" role="button">Manage Countries</a>
+    <a class="btn btn-secondary btn-lg" href="{% url 'pos_list' %}" role="button">Manage POS</a>
+    <a class="btn btn-success btn-lg" href="{% url 'prediksi_create' %}" role="button">Manage Prediksi</a>
+ 
+</div>
+{% endblock %}
+

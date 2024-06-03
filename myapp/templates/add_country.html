@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Country{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Create New Country</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="country_id">Country ID</label>
+            <input type="number" class="form-control" id="country_id" name="country_id" required>
+            {% if form.country_id.errors %}
+                <div class="text-danger">{{ form.country_id.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="country_code">Country Code</label>
+            <input type="text" class="form-control" id="country_code" name="country_code" required>
+            {% if form.country_code.errors %}
+                <div class="text-danger">{{ form.country_code.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="country_name">Country Name</label>
+            <input type="text" class="form-control" id="country_name" name="country_name" required>
+            {% if form.country_name.errors %}
+                <div class="text-danger">{{ form.country_name.errors }}</div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

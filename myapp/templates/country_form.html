@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Country{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Edit Country</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="country_id">Country ID</label>
+            {{ form.country_id }}
+            {% if form.country_id.errors %}
+                <div class="text-danger">{{ form.country_id.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            <label for="country_code">Country Code</label>
+            {{ form.country_code }}
+            {% if form.country_code.errors %}
+                <div class="text-danger">{{ form.country_code.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            <label for="country_name">Country Name</label>
+            {{ form.country_name }}
+            {% if form.country_name.errors %}
+                <div class="text-danger">{{ form.country_name.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+{% endblock %}
